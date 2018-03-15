@@ -15,6 +15,7 @@
 		CBAF39AC2059F031009E7E33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39AB2059F031009E7E33 /* main.m */; };
 		CBAF39B62059F031009E7E33 /* LZGLESPro_00Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39B52059F031009E7E33 /* LZGLESPro_00Tests.m */; };
 		CBAF39C12059F031009E7E33 /* LZGLESPro_00UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39C02059F031009E7E33 /* LZGLESPro_00UITests.m */; };
+		CBAF39D02059F135009E7E33 /* LZGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39CF2059F135009E7E33 /* LZGLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		CBAF39BC2059F031009E7E33 /* LZGLESPro_00UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LZGLESPro_00UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAF39C02059F031009E7E33 /* LZGLESPro_00UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZGLESPro_00UITests.m; sourceTree = "<group>"; };
 		CBAF39C22059F031009E7E33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBAF39CE2059F135009E7E33 /* LZGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZGLView.h; sourceTree = "<group>"; };
+		CBAF39CF2059F135009E7E33 /* LZGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZGLView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				CBAF39A72059F031009E7E33 /* LaunchScreen.storyboard */,
 				CBAF39AA2059F031009E7E33 /* Info.plist */,
 				CBAF39AB2059F031009E7E33 /* main.m */,
+				CBAF39CE2059F135009E7E33 /* LZGLView.h */,
+				CBAF39CF2059F135009E7E33 /* LZGLView.m */,
 			);
 			path = LZGLESPro_00;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBAF39A12059F031009E7E33 /* ViewController.m in Sources */,
+				CBAF39D02059F135009E7E33 /* LZGLView.m in Sources */,
 				CBAF39AC2059F031009E7E33 /* main.m in Sources */,
 				CBAF399E2059F031009E7E33 /* AppDelegate.m in Sources */,
 			);
