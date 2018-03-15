@@ -16,6 +16,9 @@
 		CBAF39B62059F031009E7E33 /* LZGLESPro_00Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39B52059F031009E7E33 /* LZGLESPro_00Tests.m */; };
 		CBAF39C12059F031009E7E33 /* LZGLESPro_00UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39C02059F031009E7E33 /* LZGLESPro_00UITests.m */; };
 		CBAF39D02059F135009E7E33 /* LZGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39CF2059F135009E7E33 /* LZGLView.m */; };
+		CBAF39D3205A124B009E7E33 /* LZGLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAF39D2205A124B009E7E33 /* LZGLUtil.m */; };
+		CBAF39D5205A192C009E7E33 /* LZVertextShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CBAF39D4205A192C009E7E33 /* LZVertextShader.glsl */; };
+		CBAF39D7205A1949009E7E33 /* GLFragementShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CBAF39D6205A1949009E7E33 /* GLFragementShader.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,10 @@
 		CBAF39C22059F031009E7E33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBAF39CE2059F135009E7E33 /* LZGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZGLView.h; sourceTree = "<group>"; };
 		CBAF39CF2059F135009E7E33 /* LZGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZGLView.m; sourceTree = "<group>"; };
+		CBAF39D1205A124B009E7E33 /* LZGLUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZGLUtil.h; sourceTree = "<group>"; };
+		CBAF39D2205A124B009E7E33 /* LZGLUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZGLUtil.m; sourceTree = "<group>"; };
+		CBAF39D4205A192C009E7E33 /* LZVertextShader.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = LZVertextShader.glsl; sourceTree = "<group>"; };
+		CBAF39D6205A1949009E7E33 /* GLFragementShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = GLFragementShader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +91,10 @@
 		CBAF39902059F031009E7E33 = {
 			isa = PBXGroup;
 			children = (
+				CBAF39D4205A192C009E7E33 /* LZVertextShader.glsl */,
+				CBAF39D6205A1949009E7E33 /* GLFragementShader.glsl */,
+				CBAF39D1205A124B009E7E33 /* LZGLUtil.h */,
+				CBAF39D2205A124B009E7E33 /* LZGLUtil.m */,
 				CBAF399B2059F031009E7E33 /* LZGLESPro_00 */,
 				CBAF39B42059F031009E7E33 /* LZGLESPro_00Tests */,
 				CBAF39BF2059F031009E7E33 /* LZGLESPro_00UITests */,
@@ -244,8 +255,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBAF39A92059F031009E7E33 /* LaunchScreen.storyboard in Resources */,
+				CBAF39D7205A1949009E7E33 /* GLFragementShader.glsl in Resources */,
 				CBAF39A62059F031009E7E33 /* Assets.xcassets in Resources */,
 				CBAF39A42059F031009E7E33 /* Main.storyboard in Resources */,
+				CBAF39D5205A192C009E7E33 /* LZVertextShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +285,7 @@
 			files = (
 				CBAF39A12059F031009E7E33 /* ViewController.m in Sources */,
 				CBAF39D02059F135009E7E33 /* LZGLView.m in Sources */,
+				CBAF39D3205A124B009E7E33 /* LZGLUtil.m in Sources */,
 				CBAF39AC2059F031009E7E33 /* main.m in Sources */,
 				CBAF399E2059F031009E7E33 /* AppDelegate.m in Sources */,
 			);

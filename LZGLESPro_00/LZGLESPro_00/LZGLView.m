@@ -10,18 +10,21 @@
 #import <OpenGLES/ES2/gl.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import "LZGLUtil.h"
 
 @interface LZGLView()
 @property (strong, nonatomic)  CAEAGLLayer *glLayer;
 @property (nonatomic, assign) GLuint glRenderB;
 @property (nonatomic, assign) GLuint glFrameB;
 @property (nonatomic, strong) EAGLContext* glContext;
-
+@property (nonatomic, assign) GLuint programe;
+@property (nonatomic, assign) GLint vPosition;
 -(void)setupLayer;
 -(void)setupContex;
 -(void)setupRenderBuffer;
 -(void)setupFrameBuffer;
 -(void)removeRenderAndFrameBuffers;
+- (void)setupShaderProgram;
 -(void)render;
 
 @end
@@ -34,6 +37,8 @@
 - (void)layoutSubviews{
     [self setupLayer];
     [self setupContex];
+    [self setupShaderProgram];
+    
     [self removeRenderAndFrameBuffers];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
@@ -95,10 +100,57 @@
 }
 
 -(void)render{
-    glClearColor(0.7, 1, 0.2, 1.0);
+    glClearColor(0.7, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    GLfloat vetexs[] = {
+        0.5, 0.5, 0.0,
+        -0.5, -0.5, -0.5,
+        0.5, -0.5, 0
+    };
+    glVertexAttribPointer(_vPosition, 3, GL_FLOAT, false, 0, vetexs);
+    glEnableVertexAttribArray(_vPosition);
+    
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
     [self.glContext presentRenderbuffer:GL_RENDERBUFFER];
     
 }
 
+- (void)setupShaderProgram{
+    NSString *vsPath = [[NSBundle mainBundle] pathForResource:@"LZVertextShader" ofType:@"glsl"];
+    NSString *fsPath = [[NSBundle mainBundle] pathForResource:@"GLFragementShader" ofType:@"glsl"];
+    
+    GLuint vShader = [LZGLUtil loadShaderWithType:GL_VERTEX_SHADER fromFilePath:vsPath];
+    GLuint fShader = [LZGLUtil loadShaderWithType:GL_FRAGMENT_SHADER fromFilePath:fsPath];
+    
+    GLuint program ;
+    program = glCreateProgram();
+    glAttachShader(program, vShader);
+    glAttachShader(program , fShader);
+    glLinkProgram(program);
+    
+    GLint status ;
+    
+    glGetProgramiv(program, GL_LINK_STATUS, &status);
+    if (!status) {
+        GLint logLen ;
+        glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLen);
+        
+        char *logB = (char*)malloc((logLen + 1) * sizeof(char));
+        memset(logB, 0, logLen + 1);
+        glGetProgramInfoLog(program, logLen, NULL, logB);
+        
+        NSString *logS = [NSString stringWithUTF8String:logB];
+        NSLog(@"program link failed: %@-----\n", logS);
+        free(logB);
+        exit(1);
+    }
+    self.programe = program;
+     glUseProgram(program);
+    _vPosition  = glGetAttribLocation(program, "vPosition");
+   
+}
 @end
