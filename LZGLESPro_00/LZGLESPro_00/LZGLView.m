@@ -107,17 +107,26 @@
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
     GLfloat vetexs[] = {
-        0.0, 0.5, 0.0, 0.7, 0.8, 0.1,
-        -0.5, -0.5, -0.5, 0.5, 0.1, 0.9,
-        0.5, -0.5, 0, 0.1, 0.9, 0.4
+        0.5f, 0.5f, 0.0f,0.1, 0.2, 0.8,
+        0.5f, -0.5f, 0.0f,0.5, 0.9, 0.1,
+        -0.5f, -0.5f, 0.0f,0.4, 0.8, 0.9,
+        -0.5f, 0.5f, 0.0f,0.6, 0.6, 0.3,
+        0.0f, 0.0f, -0.707f, 0.7, 0.1, 0.2
     };
+    
+    GLubyte indices[] = {
+        0, 1, 1, 2, 2, 3, 3, 0,
+        4, 0, 4, 1, 4, 2, 4, 3
+    };
+    
     glVertexAttribPointer(_vPosition, 3, GL_FLOAT, false, 6 * sizeof(GLfloat), vetexs);
     glEnableVertexAttribArray(_vPosition);
     
     glVertexAttribPointer(_vColor, 3, GL_FLOAT, false, 6 * sizeof(GLfloat), vetexs + 3);
     glEnableVertexAttribArray(_vColor);
     
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawElements(GL_LINES, sizeof(indices)/sizeof(GLubyte), GL_UNSIGNED_BYTE, indices);
+    //glDrawArrays(GL_TRIANGLES, 0, 3);
     
     [self.glContext presentRenderbuffer:GL_RENDERBUFFER];
     

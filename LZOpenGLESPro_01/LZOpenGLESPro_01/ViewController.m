@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet LZGLView *glVIew;
 
 @end
 
@@ -25,5 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)sliderChangeAction:(UISlider *)sender {
+    
+}
+- (IBAction)buttonAction:(UIButton *)sender {
+    
+}
 
 @end
