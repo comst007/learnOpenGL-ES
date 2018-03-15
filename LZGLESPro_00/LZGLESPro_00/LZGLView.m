@@ -19,6 +19,7 @@
 @property (nonatomic, strong) EAGLContext* glContext;
 @property (nonatomic, assign) GLuint programe;
 @property (nonatomic, assign) GLint vPosition;
+@property (nonatomic, assign) GLint vColor;
 -(void)setupLayer;
 -(void)setupContex;
 -(void)setupRenderBuffer;
@@ -106,12 +107,15 @@
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
     GLfloat vetexs[] = {
-        0.5, 0.5, 0.0,
-        -0.5, -0.5, -0.5,
-        0.5, -0.5, 0
+        0.0, 0.5, 0.0, 0.7, 0.8, 0.1,
+        -0.5, -0.5, -0.5, 0.5, 0.1, 0.9,
+        0.5, -0.5, 0, 0.1, 0.9, 0.4
     };
-    glVertexAttribPointer(_vPosition, 3, GL_FLOAT, false, 0, vetexs);
+    glVertexAttribPointer(_vPosition, 3, GL_FLOAT, false, 6 * sizeof(GLfloat), vetexs);
     glEnableVertexAttribArray(_vPosition);
+    
+    glVertexAttribPointer(_vColor, 3, GL_FLOAT, false, 6 * sizeof(GLfloat), vetexs + 3);
+    glEnableVertexAttribArray(_vColor);
     
     glDrawArrays(GL_TRIANGLES, 0, 3);
     
@@ -151,6 +155,6 @@
     self.programe = program;
      glUseProgram(program);
     _vPosition  = glGetAttribLocation(program, "vPosition");
-   
+    _vColor = glGetAttribLocation(program, "vColor");
 }
 @end
